@@ -25,15 +25,12 @@ namespace exorecapapi.Repositories
                     conn.Open();
                     using (SqlCommand cmd = conn.CreateCommand())
                     {
-                        cmd.CommandText = "INSERT INTO Jeux OUTPUT inserted.Id VALUES ( @Id, @Titre, @AneeSortie,@Note,@Descriptif,@GenreId)";
+                        cmd.CommandText = "INSERT INTO Genre OUTPUT inserted.Id VALUES ( @Id, @Nom)";
 
-                        cmd.Parameters.Add("@Id", System.Data.SqlDbType.Int).Value = obj.Id;
+                        cmd.Parameters.AddWithValue("@Id",obj.Id);
 
-                        cmd.Parameters.AddWithValue("Titre", obj.Titre);
-                        cmd.Parameters.AddWithValue("AneeSortie", obj.AnneeSortie);
-                        cmd.Parameters.AddWithValue("Note", obj.Note);
-                        cmd.Parameters.AddWithValue("Descriptif", obj.Descriptif);
-                        cmd.Parameters.AddWithValue("GenreId", obj.GenreId);
+                        cmd.Parameters.AddWithValue("Nom", obj.Nom);
+                        
 
 
                         id = (int)cmd.ExecuteScalar();
