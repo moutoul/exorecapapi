@@ -1,3 +1,6 @@
+using exorecapapi.Entities;
+using exorecapapi.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,8 +26,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-IContext context = new DataContext();
-builder.Services.AddScoped<IContext>(s => context);
+
 string cnstr = builder.Configuration.GetConnectionString("Dev");
 builder.Services.AddScoped<IRepository<JeuxPOCO, int>, JeuxRepository>(s => new JeuxRepository(cnstr));
 builder.Services.AddScoped<IRepository<GenrePOCO, int>, GenreRepository>(s => new GenreRepository(cnstr));
