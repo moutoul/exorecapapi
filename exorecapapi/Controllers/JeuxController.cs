@@ -16,6 +16,7 @@ namespace exorecapapi.Controllers
             _repository = repository;
         }
         [HttpPost]
+        [Route("Jeux/{leJeux:int}")]
         public IActionResult AjouterJeu([FromBody] JeuxPOCO jeu)
         {
             _repository.Add(jeu);

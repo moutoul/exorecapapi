@@ -25,9 +25,9 @@ namespace exorecapapi.Repositories
                     conn.Open();
                     using (SqlCommand cmd = conn.CreateCommand())
                     {
-                        cmd.CommandText = "INSERT INTO Genre OUTPUT inserted.Id VALUES ( @Id, @Nom)";
+                        cmd.CommandText = "INSERT INTO Genre OUTPUT inserted.Id VALUES ( @Nom)";
 
-                        cmd.Parameters.AddWithValue("@Id",obj.Id);
+
 
                         cmd.Parameters.AddWithValue("Nom", obj.Nom);
                         
