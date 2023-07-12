@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public string Titre { get; set; }
         public int AnneeSortie { get; set; }
-        public int Note { get; set; }
+        public double Note { get; set; }
 
         public string Descriptif { get; set; }  
 

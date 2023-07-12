@@ -1,4 +1,5 @@
-﻿using System;
+﻿using exorecapapi.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,11 @@ namespace exorecapapi.Repositories
 {
     public class GenreRepository : IRepository<GenrePOCO, int>
     {
+        private string _cnstr;
+        public GenreRepository(string cnstr)
+        {
+            _cnstr = cnstr;
+        }
         public int Add(GenrePOCO obj)
         {
             throw new NotImplementedException();
